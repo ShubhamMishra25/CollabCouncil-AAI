@@ -1,0 +1,180 @@
+{
+  "_meta": {
+    "plan_reference_date": "2026-11-10"
+  },
+  "Brazil": {
+    "NovaBand": {
+      "original_launch_date": "2027-02-02",
+      "planned_launch_weeks_from_now": 12,
+      "assumed_cert_weeks": 0,
+      "schedule_buffer_weeks": 2,
+      "max_slip_weeks": 12,
+      "campaign_lead_time_weeks": 6,
+      "marketing_budget_usd": 600000.0,
+      "non_refundable_ad_commitments_usd": 150000.0,
+      "soft_launch_prep_possible": true
+    },
+    "NovaAir": {
+      "original_launch_date": "2027-02-02",
+      "planned_launch_weeks_from_now": 12,
+      "assumed_cert_weeks": 0,
+      "schedule_buffer_weeks": 2,
+      "max_slip_weeks": 10,
+      "campaign_lead_time_weeks": 5,
+      "marketing_budget_usd": 300000.0,
+      "non_refundable_ad_commitments_usd": 80000.0,
+      "soft_launch_prep_possible": true
+    },
+    "NovaBuds": {
+      "original_launch_date": "2027-02-02",
+      "planned_launch_weeks_from_now": 12,
+      "assumed_cert_weeks": 0,
+      "schedule_buffer_weeks": 4,
+      "max_slip_weeks": 8,
+      "campaign_lead_time_weeks": 4,
+      "marketing_budget_usd": 200000.0,
+      "non_refundable_ad_commitments_usd": 50000.0,
+      "soft_launch_prep_possible": true
+    }
+  },
+  "India": {
+    "NovaBand": {
+      "original_launch_date": "2027-02-02",
+      "planned_launch_weeks_from_now": 12,
+      "assumed_cert_weeks": 0,
+      "schedule_buffer_weeks": 2,
+      "max_slip_weeks": 14,
+      "campaign_lead_time_weeks": 6,
+      "marketing_budget_usd": 500000.0,
+      "non_refundable_ad_commitments_usd": 140000.0,
+      "soft_launch_prep_possible": true
+    },
+    "NovaAir": {
+      "original_launch_date": "2027-02-02",
+      "planned_launch_weeks_from_now": 12,
+      "assumed_cert_weeks": 0,
+      "schedule_buffer_weeks": 2,
+      "max_slip_weeks": 6,
+      "campaign_lead_time_weeks": 6,
+      "marketing_budget_usd": 350000.0,
+      "non_refundable_ad_commitments_usd": 120000.0,
+      "soft_launch_prep_possible": true
+    },
+    "NovaBuds": {
+      "original_launch_date": "2027-02-02",
+      "planned_launch_weeks_from_now": 12,
+      "assumed_cert_weeks": 0,
+      "schedule_buffer_weeks": 2,
+      "max_slip_weeks": 8,
+      "campaign_lead_time_weeks": 4,
+      "marketing_budget_usd": 220000.0,
+      "non_refundable_ad_commitments_usd": 60000.0,
+      "soft_launch_prep_possible": true
+    }
+  },
+  "Germany": {
+    "NovaBand": {
+      "original_launch_date": "2027-02-02",
+      "planned_launch_weeks_from_now": 12,
+      "assumed_cert_weeks": 0,
+      "schedule_buffer_weeks": 3,
+      "max_slip_weeks": 12,
+      "campaign_lead_time_weeks": 6,
+      "marketing_budget_usd": 400000.0,
+      "non_refundable_ad_commitments_usd": 100000.0,
+      "soft_launch_prep_possible": true
+    },
+    "NovaAir": {
+      "original_launch_date": "2027-02-02",
+      "planned_launch_weeks_from_now": 12,
+      "assumed_cert_weeks": 0,
+      "schedule_buffer_weeks": 3,
+      "max_slip_weeks": 10,
+      "campaign_lead_time_weeks": 5,
+      "marketing_budget_usd": 280000.0,
+      "non_refundable_ad_commitments_usd": 70000.0,
+      "soft_launch_prep_possible": true
+    },
+    "NovaBuds": {
+      "original_launch_date": "2027-02-02",
+      "planned_launch_weeks_from_now": 12,
+      "assumed_cert_weeks": 0,
+      "schedule_buffer_weeks": 4,
+      "max_slip_weeks": 8,
+      "campaign_lead_time_weeks": 4,
+      "marketing_budget_usd": 250000.0,
+      "non_refundable_ad_commitments_usd": 60000.0,
+      "soft_launch_prep_possible": true
+    }
+  },
+  "Mexico": {
+    "NovaBand": {
+      "original_launch_date": "2027-02-02",
+      "planned_launch_weeks_from_now": 12,
+      "assumed_cert_weeks": 0,
+      "schedule_buffer_weeks": 2,
+      "max_slip_weeks": 12,
+      "campaign_lead_time_weeks": 5,
+      "marketing_budget_usd": 320000.0,
+      "non_refundable_ad_commitments_usd": 85000.0,
+      "soft_launch_prep_possible": true
+    },
+    "NovaAir": {
+      "original_launch_date": "2027-02-02",
+      "planned_launch_weeks_from_now": 12,
+      "assumed_cert_weeks": 0,
+      "schedule_buffer_weeks": 3,
+      "max_slip_weeks": 10,
+      "campaign_lead_time_weeks": 5,
+      "marketing_budget_usd": 240000.0,
+      "non_refundable_ad_commitments_usd": 60000.0,
+      "soft_launch_prep_possible": true
+    },
+    "NovaBuds": {
+      "original_launch_date": "2027-02-02",
+      "planned_launch_weeks_from_now": 12,
+      "assumed_cert_weeks": 0,
+      "schedule_buffer_weeks": 3,
+      "max_slip_weeks": 7,
+      "campaign_lead_time_weeks": 4,
+      "marketing_budget_usd": 180000.0,
+      "non_refundable_ad_commitments_usd": 40000.0,
+      "soft_launch_prep_possible": true
+    }
+  },
+  "Indonesia": {
+    "NovaBand": {
+      "original_launch_date": "2027-02-02",
+      "planned_launch_weeks_from_now": 12,
+      "assumed_cert_weeks": 0,
+      "schedule_buffer_weeks": 2,
+      "max_slip_weeks": 12,
+      "campaign_lead_time_weeks": 6,
+      "marketing_budget_usd": 350000.0,
+      "non_refundable_ad_commitments_usd": 90000.0,
+      "soft_launch_prep_possible": true
+    },
+    "NovaAir": {
+      "original_launch_date": "2027-02-02",
+      "planned_launch_weeks_from_now": 12,
+      "assumed_cert_weeks": 0,
+      "schedule_buffer_weeks": 2,
+      "max_slip_weeks": 8,
+      "campaign_lead_time_weeks": 5,
+      "marketing_budget_usd": 260000.0,
+      "non_refundable_ad_commitments_usd": 70000.0,
+      "soft_launch_prep_possible": true
+    },
+    "NovaBuds": {
+      "original_launch_date": "2027-02-02",
+      "planned_launch_weeks_from_now": 12,
+      "assumed_cert_weeks": 0,
+      "schedule_buffer_weeks": 3,
+      "max_slip_weeks": 8,
+      "campaign_lead_time_weeks": 4,
+      "marketing_budget_usd": 190000.0,
+      "non_refundable_ad_commitments_usd": 45000.0,
+      "soft_launch_prep_possible": true
+    }
+  }
+}

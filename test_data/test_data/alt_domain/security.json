@@ -1,0 +1,10 @@
+{
+  "hardening_baseline_eng_weeks": 8,
+  "per_service_security_eng_weeks": 1,
+  "hard_rule": "mTLS and a secrets manager must be in place before any service goes live",
+  "risk_notes": [
+    "Cross-service communication increases auth attack surface",
+    "Automated secret rotation required across microservice cluster",
+    "Service mesh egress policy enforcement needed"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "spare_capacity_eng_weeks_this_quarter": 30,
+  "migration_eng_weeks_per_service": 5,
+  "release_deadline_weeks": 10,
+  "roadmap_commitments_note": "Core platform modernization commitments limit available engineering capacity."
+}

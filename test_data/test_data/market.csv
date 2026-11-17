@@ -1,0 +1,16 @@
+country,product,segment_size_m,growth_pct,demand_index,vs_current_markets_pct,seasonality_note,adoption_barriers
+Brazil,NovaBand,11.2,12.5,80,40.0,Nov-Dec holiday peak,"Price sensitivity, SpO2 trust"
+Brazil,NovaAir,6.4,8.0,60,-15.0,Dry winter season peak,High import price perception
+Brazil,NovaBuds,14.0,14.0,85,30.0,Consistent year-round demand,Counterfeit audio flood
+India,NovaBand,28.0,22.0,90,60.0,Diwali festival shopping,Aggressive domestic pricing
+India,NovaAir,18.5,15.0,70,25.0,Winter smog pollution spike,Filter replacement costs
+India,NovaBuds,32.0,25.0,85,50.0,Festive season sales,Brand loyalty to budget rivals
+Germany,NovaBand,8.5,5.0,65,-5.0,Spring fitness surge,Strict data privacy requirements
+Germany,NovaAir,7.2,6.0,60,-10.0,Spring allergy season,Demand for DIN certification
+Germany,NovaBuds,9.8,4.0,75,10.0,Q4 holiday sales,Established audiophile preferences
+Mexico,NovaBand,7.0,9.0,70,-10.0,Hot Sale and Buen Fin peaks,Limited retail installment credit
+Mexico,NovaAir,5.5,7.5,65,-20.0,Dry spring air pollution,Low consumer awareness
+Mexico,NovaBuds,10.5,11.0,80,15.0,Back to school and holidays,Competition from grey market imports
+Indonesia,NovaBand,12.0,16.0,75,20.0,Ramadan and year-end bonuses,"Price sensitivity, local support"
+Indonesia,NovaAir,8.0,12.0,60,5.0,Dry season forest fire haze,High power consumption concerns
+Indonesia,NovaBuds,16.0,18.0,80,25.0,Year-end promotional peak,Heavy Chinese OEM presence

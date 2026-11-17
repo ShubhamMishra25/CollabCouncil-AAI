@@ -1,0 +1,414 @@
+{
+  "_meta": {
+    "note": "Synthetic regulatory requirements for Nova Devices consumer electronics market entry."
+  },
+  "Brazil": {
+    "NovaBand": {
+      "required_certifications": [
+        {
+          "name": "ANVISA notification (health-adjacent sensor)",
+          "issuing_body": "ANVISA"
+        },
+        {
+          "name": "ANATEL Bluetooth homologation",
+          "issuing_body": "ANATEL"
+        },
+        {
+          "name": "INMETRO battery safety",
+          "issuing_body": "INMETRO"
+        }
+      ],
+      "typical_weeks": {
+        "min": 8,
+        "max": 14,
+        "expected": 10
+      },
+      "fee_usd": 35000,
+      "fee_usd_max": 48000,
+      "blocker": {
+        "has_blocker": false,
+        "description": ""
+      },
+      "mitigation_options": [],
+      "notes": "Standard multi-agency path for wearable with biometric sensors."
+    },
+    "NovaAir": {
+      "required_certifications": [
+        {
+          "name": "INMETRO electrical safety",
+          "issuing_body": "INMETRO"
+        },
+        {
+          "name": "PROCEL energy efficiency label",
+          "issuing_body": "Eletrobras"
+        }
+      ],
+      "typical_weeks": {
+        "min": 6,
+        "max": 12,
+        "expected": 8
+      },
+      "fee_usd": 24000,
+      "fee_usd_max": 32000,
+      "blocker": {
+        "has_blocker": false,
+        "description": ""
+      },
+      "mitigation_options": [],
+      "notes": "Testing at certified local Brazilian laboratory mandatory."
+    },
+    "NovaBuds": {
+      "required_certifications": [
+        {
+          "name": "ANATEL RF homologation",
+          "issuing_body": "ANATEL"
+        }
+      ],
+      "typical_weeks": {
+        "min": 2,
+        "max": 4,
+        "expected": 3
+      },
+      "fee_usd": 7000,
+      "fee_usd_max": 9500,
+      "blocker": {
+        "has_blocker": false,
+        "description": ""
+      },
+      "mitigation_options": [],
+      "notes": "Streamlined ANATEL approval for standard Bluetooth 5.3 module."
+    }
+  },
+  "India": {
+    "NovaBand": {
+      "required_certifications": [
+        {
+          "name": "BIS registration (CRS)",
+          "issuing_body": "BIS"
+        },
+        {
+          "name": "WPC ETA approval",
+          "issuing_body": "WPC"
+        }
+      ],
+      "typical_weeks": {
+        "min": 10,
+        "max": 16,
+        "expected": 12
+      },
+      "fee_usd": 42000,
+      "fee_usd_max": 55000,
+      "blocker": {
+        "has_blocker": false,
+        "description": ""
+      },
+      "mitigation_options": [],
+      "notes": "Dual certification covering Bluetooth and battery safety."
+    },
+    "NovaAir": {
+      "required_certifications": [
+        {
+          "name": "BIS registration (CRS)",
+          "issuing_body": "BIS"
+        },
+        {
+          "name": "BEE energy label",
+          "issuing_body": "BEE"
+        },
+        {
+          "name": "WPC ETA",
+          "issuing_body": "WPC"
+        }
+      ],
+      "typical_weeks": {
+        "min": 12,
+        "max": 20,
+        "expected": 16
+      },
+      "fee_usd": 65000,
+      "fee_usd_max": 72000,
+      "blocker": {
+        "has_blocker": false,
+        "description": ""
+      },
+      "mitigation_options": [],
+      "notes": "Mandatory in-country testing required by BIS."
+    },
+    "NovaBuds": {
+      "required_certifications": [
+        {
+          "name": "WPC ETA wireless approval",
+          "issuing_body": "WPC"
+        },
+        {
+          "name": "BIS registration for cell/battery",
+          "issuing_body": "BIS"
+        }
+      ],
+      "typical_weeks": {
+        "min": 4,
+        "max": 8,
+        "expected": 6
+      },
+      "fee_usd": 6000,
+      "fee_usd_max": 9000,
+      "blocker": {
+        "has_blocker": false,
+        "description": ""
+      },
+      "mitigation_options": [
+        {
+          "name": "Fast-track WPC testing lab",
+          "weeks_saved": 2,
+          "extra_cost_usd": 3000
+        }
+      ],
+      "notes": "Testing queues at designated labs can be expedited."
+    }
+  },
+  "Germany": {
+    "NovaBand": {
+      "required_certifications": [
+        {
+          "name": "CE marking (RED/EMC)",
+          "issuing_body": "BNetzA"
+        },
+        {
+          "name": "ElektroG/WEEE registration",
+          "issuing_body": "ear"
+        },
+        {
+          "name": "RoHS compliance dossier",
+          "issuing_body": "UBA"
+        }
+      ],
+      "typical_weeks": {
+        "min": 8,
+        "max": 14,
+        "expected": 10
+      },
+      "fee_usd": 32000,
+      "fee_usd_max": 42000,
+      "blocker": {
+        "has_blocker": false,
+        "description": ""
+      },
+      "mitigation_options": [],
+      "notes": "Non-medical wearable status confirmed; avoids MDR pathway."
+    },
+    "NovaAir": {
+      "required_certifications": [
+        {
+          "name": "CE Low Voltage & EMC Directive",
+          "issuing_body": "TUV"
+        },
+        {
+          "name": "ErP Eco-design compliance",
+          "issuing_body": "BNetzA"
+        },
+        {
+          "name": "ElektroG/WEEE registration",
+          "issuing_body": "ear"
+        }
+      ],
+      "typical_weeks": {
+        "min": 6,
+        "max": 10,
+        "expected": 7
+      },
+      "fee_usd": 22000,
+      "fee_usd_max": 30000,
+      "blocker": {
+        "has_blocker": false,
+        "description": ""
+      },
+      "mitigation_options": [],
+      "notes": "Notified body review of air purification filtration claims."
+    },
+    "NovaBuds": {
+      "required_certifications": [
+        {
+          "name": "CE marking (RED/EMC, self-declaration)",
+          "issuing_body": "BNetzA"
+        },
+        {
+          "name": "ElektroG/WEEE registration",
+          "issuing_body": "ear"
+        }
+      ],
+      "typical_weeks": {
+        "min": 2,
+        "max": 5,
+        "expected": 3
+      },
+      "fee_usd": 4000,
+      "fee_usd_max": 6000,
+      "blocker": {
+        "has_blocker": false,
+        "description": ""
+      },
+      "mitigation_options": [],
+      "notes": "Self-declaration under RED with accredited lab test reports."
+    }
+  },
+  "Mexico": {
+    "NovaBand": {
+      "required_certifications": [
+        {
+          "name": "IFT-008 wireless certificate",
+          "issuing_body": "IFT"
+        },
+        {
+          "name": "NOM-001/NOM-024 electrical safety",
+          "issuing_body": "DGN"
+        }
+      ],
+      "typical_weeks": {
+        "min": 7,
+        "max": 12,
+        "expected": 9
+      },
+      "fee_usd": 28000,
+      "fee_usd_max": 38000,
+      "blocker": {
+        "has_blocker": false,
+        "description": ""
+      },
+      "mitigation_options": [],
+      "notes": "COFEPRIS exemption letter obtained for wellness features."
+    },
+    "NovaAir": {
+      "required_certifications": [
+        {
+          "name": "NOM-003 safety certificate",
+          "issuing_body": "ANCE"
+        },
+        {
+          "name": "CONUEE energy efficiency label",
+          "issuing_body": "CONUEE"
+        }
+      ],
+      "typical_weeks": {
+        "min": 6,
+        "max": 12,
+        "expected": 8
+      },
+      "fee_usd": 20000,
+      "fee_usd_max": 28000,
+      "blocker": {
+        "has_blocker": false,
+        "description": ""
+      },
+      "mitigation_options": [
+        {
+          "name": "NOM accredited pre-test",
+          "weeks_saved": 2,
+          "extra_cost_usd": 4000
+        }
+      ],
+      "notes": "Pre-testing reduces formal ANCE evaluation cycle."
+    },
+    "NovaBuds": {
+      "required_certifications": [
+        {
+          "name": "IFT-008 wireless homologation",
+          "issuing_body": "IFT"
+        },
+        {
+          "name": "NOM-024 consumer information",
+          "issuing_body": "PROFECO"
+        }
+      ],
+      "typical_weeks": {
+        "min": 2,
+        "max": 4,
+        "expected": 2
+      },
+      "fee_usd": 4500,
+      "fee_usd_max": 6500,
+      "blocker": {
+        "has_blocker": false,
+        "description": ""
+      },
+      "mitigation_options": [],
+      "notes": "Rapid homologation using FCC test reports."
+    }
+  },
+  "Indonesia": {
+    "NovaBand": {
+      "required_certifications": [
+        {
+          "name": "SDPPI RF certificate",
+          "issuing_body": "Postel/SDPPI"
+        },
+        {
+          "name": "SNI electrical safety",
+          "issuing_body": "BSN"
+        },
+        {
+          "name": "Kemenkes health device license",
+          "issuing_body": "Kemenkes"
+        }
+      ],
+      "typical_weeks": {
+        "min": 12,
+        "max": 24,
+        "expected": 16
+      },
+      "fee_usd": 52000,
+      "fee_usd_max": 70000,
+      "blocker": {
+        "has_blocker": true,
+        "description": "Kemenkes medical device license requires local clinical trials"
+      },
+      "mitigation_options": [],
+      "notes": "Regulatory blocker: Kemenkes reclassified SpO2 sensor as Class B medical device."
+    },
+    "NovaAir": {
+      "required_certifications": [
+        {
+          "name": "SNI appliance safety certification",
+          "issuing_body": "BSN"
+        },
+        {
+          "name": "SDPPI certificate for Wi-Fi module",
+          "issuing_body": "SDPPI"
+        }
+      ],
+      "typical_weeks": {
+        "min": 10,
+        "max": 18,
+        "expected": 14
+      },
+      "fee_usd": 38000,
+      "fee_usd_max": 48000,
+      "blocker": {
+        "has_blocker": false,
+        "description": ""
+      },
+      "mitigation_options": [],
+      "notes": "Extensive factory audit required for SNI certification mark."
+    },
+    "NovaBuds": {
+      "required_certifications": [
+        {
+          "name": "SDPPI telecommunication certificate",
+          "issuing_body": "Postel/SDPPI"
+        }
+      ],
+      "typical_weeks": {
+        "min": 2,
+        "max": 5,
+        "expected": 3
+      },
+      "fee_usd": 5000,
+      "fee_usd_max": 7500,
+      "blocker": {
+        "has_blocker": false,
+        "description": ""
+      },
+      "mitigation_options": [],
+      "notes": "Paper-based certification through accredited overseas test lab."
+    }
+  }
+}

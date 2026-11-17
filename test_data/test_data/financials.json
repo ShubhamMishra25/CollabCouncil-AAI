@@ -1,0 +1,151 @@
+{
+  "_meta": {
+    "model": "landed_cost  = unit_cost * (1 + import_duty_pct/100) + logistics_cost_per_unit\nunit_margin  = price - landed_cost\nunits_12m    = base_monthly_volume_at_demand_100 * (demand_index/100) * 12\nrevenue_12m  = price * units_12m\ncontribution = unit_margin * units_12m\nprofit_12m   = contribution - fixed_launch_cost - cert_fee - delay_cost_per_week * delay_weeks\nmargin_pct   = 100 * profit_12m / revenue_12m\nviable       = profit_12m >= min_net_profit_usd\nmax_cert_fee = contribution - fixed_launch_cost - delay_cost_per_week*delay_weeks - min_net_profit_usd"
+  },
+  "products": {
+    "NovaBand": {
+      "unit_cost": 80,
+      "min_net_profit_usd": 300000
+    },
+    "NovaAir": {
+      "unit_cost": 65,
+      "min_net_profit_usd": 250000
+    },
+    "NovaBuds": {
+      "unit_cost": 22,
+      "min_net_profit_usd": 150000
+    }
+  },
+  "markets": {
+    "Brazil": {
+      "NovaBand": {
+        "price": 199.0,
+        "import_duty_pct": 25.0,
+        "logistics_cost_per_unit": 11.5,
+        "fixed_launch_cost": 1980000.0,
+        "base_monthly_volume_at_demand_100": 3000,
+        "delay_cost_per_week": 20000.0
+      },
+      "NovaAir": {
+        "price": 155.0,
+        "import_duty_pct": 20.0,
+        "logistics_cost_per_unit": 9.0,
+        "fixed_launch_cost": 500000.0,
+        "base_monthly_volume_at_demand_100": 2200,
+        "delay_cost_per_week": 14000.0
+      },
+      "NovaBuds": {
+        "price": 55.0,
+        "import_duty_pct": 18.0,
+        "logistics_cost_per_unit": 4.5,
+        "fixed_launch_cost": 650000.0,
+        "base_monthly_volume_at_demand_100": 4000,
+        "delay_cost_per_week": 8000.0
+      }
+    },
+    "India": {
+      "NovaBand": {
+        "price": 180.0,
+        "import_duty_pct": 22.0,
+        "logistics_cost_per_unit": 8.0,
+        "fixed_launch_cost": 1800000.0,
+        "base_monthly_volume_at_demand_100": 3500,
+        "delay_cost_per_week": 22000.0
+      },
+      "NovaAir": {
+        "price": 135.0,
+        "import_duty_pct": 20.0,
+        "logistics_cost_per_unit": 7.0,
+        "fixed_launch_cost": 500000.0,
+        "base_monthly_volume_at_demand_100": 2000,
+        "delay_cost_per_week": 25000.0
+      },
+      "NovaBuds": {
+        "price": 49.0,
+        "import_duty_pct": 15.0,
+        "logistics_cost_per_unit": 4.0,
+        "fixed_launch_cost": 600000.0,
+        "base_monthly_volume_at_demand_100": 4500,
+        "delay_cost_per_week": 9000.0
+      }
+    },
+    "Germany": {
+      "NovaBand": {
+        "price": 205.0,
+        "import_duty_pct": 3.0,
+        "logistics_cost_per_unit": 5.0,
+        "fixed_launch_cost": 1300000.0,
+        "base_monthly_volume_at_demand_100": 2200,
+        "delay_cost_per_week": 18000.0
+      },
+      "NovaAir": {
+        "price": 160.0,
+        "import_duty_pct": 3.0,
+        "logistics_cost_per_unit": 6.5,
+        "fixed_launch_cost": 600000.0,
+        "base_monthly_volume_at_demand_100": 1600,
+        "delay_cost_per_week": 12000.0
+      },
+      "NovaBuds": {
+        "price": 79.0,
+        "import_duty_pct": 0.0,
+        "logistics_cost_per_unit": 3.0,
+        "fixed_launch_cost": 2000000.0,
+        "base_monthly_volume_at_demand_100": 6000,
+        "delay_cost_per_week": 8000.0
+      }
+    },
+    "Mexico": {
+      "NovaBand": {
+        "price": 185.0,
+        "import_duty_pct": 15.0,
+        "logistics_cost_per_unit": 7.0,
+        "fixed_launch_cost": 1100000.0,
+        "base_monthly_volume_at_demand_100": 2800,
+        "delay_cost_per_week": 15000.0
+      },
+      "NovaAir": {
+        "price": 148.0,
+        "import_duty_pct": 16.0,
+        "logistics_cost_per_unit": 8.0,
+        "fixed_launch_cost": 420000.0,
+        "base_monthly_volume_at_demand_100": 2200,
+        "delay_cost_per_week": 11000.0
+      },
+      "NovaBuds": {
+        "price": 52.0,
+        "import_duty_pct": 10.0,
+        "logistics_cost_per_unit": 4.0,
+        "fixed_launch_cost": 480000.0,
+        "base_monthly_volume_at_demand_100": 3200,
+        "delay_cost_per_week": 6000.0
+      }
+    },
+    "Indonesia": {
+      "NovaBand": {
+        "price": 175.0,
+        "import_duty_pct": 17.5,
+        "logistics_cost_per_unit": 8.5,
+        "fixed_launch_cost": 1200000.0,
+        "base_monthly_volume_at_demand_100": 2400,
+        "delay_cost_per_week": 16000.0
+      },
+      "NovaAir": {
+        "price": 138.0,
+        "import_duty_pct": 18.0,
+        "logistics_cost_per_unit": 9.5,
+        "fixed_launch_cost": 550000.0,
+        "base_monthly_volume_at_demand_100": 1400,
+        "delay_cost_per_week": 15000.0
+      },
+      "NovaBuds": {
+        "price": 52.0,
+        "import_duty_pct": 12.0,
+        "logistics_cost_per_unit": 4.5,
+        "fixed_launch_cost": 500000.0,
+        "base_monthly_volume_at_demand_100": 3500,
+        "delay_cost_per_week": 7000.0
+      }
+    }
+  }
+}

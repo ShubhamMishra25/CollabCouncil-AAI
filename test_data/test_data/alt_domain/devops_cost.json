@@ -1,0 +1,6 @@
+{
+  "total_services": 10,
+  "current_infra_monthly_usd": 12000,
+  "incremental_infra_monthly_per_service_usd": 900,
+  "infra_budget_cap_monthly_usd": 17000
+}
