@@ -7,6 +7,7 @@ from typing import Any, Dict, List
 
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import streamlit as st
 
 ROOT = Path(__file__).resolve().parent
@@ -15,8 +16,11 @@ if str(ROOT) not in sys.path:
 
 from src.agents.escalation import HumanEscalationAgent
 from src.comparison import get_comparison_matrix
+from src.comparison import run_single_generalist
 from src.config import DATA_DIR, GROQ_API_KEY
+from src.llm import llm
 from src.orchestrator import CollabCouncilOrchestrator
+from src.pluggable.tech_roster import get_tech_roster, TechConflictHandler
 
 
 st.set_page_config(
@@ -34,8 +38,9 @@ st.markdown(
     .hero { padding: 1.4rem 1.6rem; border-radius: 18px; background: linear-gradient(120deg,#102a43,#176b87); color: white; margin-bottom: 1rem; }
     .hero h1 { margin: 0; font-size: 2.2rem; }
     .hero p { margin: .35rem 0 0; opacity: .84; font-size: 1.05rem; }
-    .finding { border: 1px solid #e5eaf1; border-radius: 12px; padding: 1rem; margin-bottom: .7rem; background: white; }
-    .finding small { color: #64748b; }
+    .finding { border: 1px solid #e5eaf1; border-radius: 12px; padding: 1rem; margin-bottom: .7rem; background: white; color: #172033; }
+    .finding * { color: #172033; }
+    .finding small { color: #475569; }
     </style>
     """,
     unsafe_allow_html=True,
@@ -73,9 +78,23 @@ def parse_question(question: str, products: List[str], countries: List[str]) -> 
     product = next((item for item in products if item.lower() in normalized), None)
     country = next((item for item in countries if item.lower() in normalized), None)
     if not product or not country:
+        try:
+            extracted = json.loads(
+                llm(
+                    "Extract a launch decision target. Return JSON with product and country only. "
+                    f"Choose product from {products} and country from {countries}; use null when unclear.",
+                    question,
+                    json_mode=True,
+                )
+            )
+            product = extracted.get("product") or product
+            country = extracted.get("country") or country
+        except Exception:
+            pass
+    if not product or not country:
         raise ValueError(
-            "Please mention one supported product and market, such as "
-            "'Should we launch NovaBand in Brazil next quarter?'"
+            "I need a product and market to use the available specialist datasets. "
+            "Try asking: 'Should we launch NovaBand in Brazil next quarter?'"
         )
     return product, country
 
@@ -104,6 +123,8 @@ def run_council(product: str, country: str, selected_option: int) -> None:
             "product": product,
             "country": country,
         }
+        st.session_state.pop("follow_up_answer", None)
+        st.session_state.pop("generalist_answer", None)
         progress.progress(100, text="Council complete")
     except Exception as error:
         progress.empty()
@@ -194,6 +215,38 @@ def render_activity(result: Dict[str, Any]) -> None:
     left, right = st.columns([1, 2])
     left.plotly_chart(px.bar(phases, x="Phase", y="Events", color="Events"), use_container_width=True)
     right.dataframe(frame, use_container_width=True, hide_index=True)
+
+    messages = council.bb.message_log
+    st.subheader("Agent communication graph")
+    if not messages:
+        st.info("No subscriber messages were recorded for this run.")
+        return
+    nodes = list(dict.fromkeys([message.sender for message in messages] + [message.receiver for message in messages]))
+    node_index = {name: index for index, name in enumerate(nodes)}
+    counts: Dict[tuple[int, int], int] = {}
+    for message in messages:
+        edge = (node_index[message.sender], node_index[message.receiver])
+        counts[edge] = counts.get(edge, 0) + 1
+    source, target, value = zip(*[(left, right, count) for (left, right), count in counts.items()])
+    st.plotly_chart(
+        go.Figure(
+            go.Sankey(
+                node={"label": nodes, "pad": 18, "thickness": 18},
+                link={"source": source, "target": target, "value": value},
+            )
+        ),
+        use_container_width=True,
+    )
+    st.dataframe(
+        pd.DataFrame(
+            [
+                {"Sender": message.sender, "Receiver": message.receiver, "Finding": message.finding_id, "Topic": message.topic}
+                for message in messages
+            ]
+        ),
+        use_container_width=True,
+        hide_index=True,
+    )
 
 
 st.markdown(
@@ -294,6 +347,33 @@ if result:
     tabs = st.tabs(["Recommendation", "Risks & negotiation", "Activity stream", "Data explorer", "System comparison"])
     with tabs[0]:
         render_recommendation(result)
+        st.subheader("Ask a follow-up")
+        st.caption("Ask about the council's reasoning, risks, evidence, or assumptions.")
+        with st.form("follow_up_form", clear_on_submit=False):
+            follow_up = st.text_input(
+                "Follow-up question",
+                placeholder="Why is the recommendation delayed?",
+                label_visibility="collapsed",
+            )
+            follow_up_submit = st.form_submit_button("Ask about this decision")
+        if follow_up_submit and follow_up.strip():
+            finding_context = "\n".join(
+                f"- {finding.agent}: {finding.claim} ({finding.numbers})"
+                for finding in result["council"].bb.findings.values()
+            )
+            recommendation_context = "\n".join(clause.clause_text for clause in result["clauses"])
+            try:
+                answer = llm(
+                    "You are the decision analyst for CollabCouncil. Answer only from the supplied "
+                    "council evidence. If evidence is insufficient, say so plainly.",
+                    f"User question: {follow_up}\nCouncil findings:\n{finding_context}\n"
+                    f"Recommendation:\n{recommendation_context}",
+                )
+                st.session_state.follow_up_answer = answer
+            except Exception as error:
+                st.error(f"Follow-up could not be answered: {error}")
+        if st.session_state.get("follow_up_answer"):
+            st.info(st.session_state.follow_up_answer)
     with tabs[1]:
         render_risk(result)
     with tabs[2]:
@@ -312,6 +392,42 @@ if result:
     with tabs[4]:
         st.subheader("Why a council?")
         st.dataframe(get_comparison_matrix(), use_container_width=True, hide_index=True)
+        if st.button("Run actual generalist comparison"):
+            with st.spinner("Running the single generalist LLM…"):
+                try:
+                    st.session_state.generalist_answer = run_single_generalist(product, country)
+                except Exception as error:
+                    st.error(f"Generalist comparison failed: {error}")
+        if st.session_state.get("generalist_answer"):
+            st.markdown("#### Single generalist LLM")
+            st.warning(st.session_state.generalist_answer)
+            st.markdown("#### CollabCouncil")
+            st.success(result["clauses"][-1].clause_text)
+        st.subheader("Pluggable specialist roster")
+        st.caption("The same coordination core can run against a software migration decision.")
+        st.write(" · ".join(f"{specialist.icon} {specialist.name}" for specialist in get_tech_roster()))
+        if st.button("Run engineering roster demo"):
+            with st.spinner("Running the engineering specialist roster…"):
+                try:
+                    tech_council = CollabCouncilOrchestrator(
+                        goal={
+                            "title": "Should we migrate the monolith to microservices this quarter?",
+                            "domain": "software architecture migration",
+                        },
+                        specialists=get_tech_roster(),
+                        conflict_handler=TechConflictHandler(),
+                    )
+                    st.session_state.tech_result = {
+                        "council": tech_council,
+                        "clauses": tech_council.run_pipeline(),
+                    }
+                except Exception as error:
+                    st.error(f"Engineering roster failed: {error}")
+        if st.session_state.get("tech_result"):
+            tech_result = st.session_state.tech_result
+            st.markdown("#### Engineering roster result")
+            for clause in tech_result["clauses"]:
+                st.write(f"• {clause.clause_text}")
 else:
     st.info("👈 Select a product and market, then click **Run council** to begin.")
     preview = pd.DataFrame(
